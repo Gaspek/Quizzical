@@ -102,10 +102,15 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.question-container{
+  max-width: 40em;
+}
+
 .question{
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-evenly space-between;
+  gap: 1em;
 }
 
 .question input{
@@ -123,6 +128,8 @@ button:focus-visible {
   text-align: center;
   cursor: pointer;
   font-weight: 600;
+  min-width: 5em;
+  justify-content: center;
 }
 
 .answer:hover{

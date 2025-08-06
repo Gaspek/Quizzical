@@ -1,8 +1,8 @@
 export default function Question(props){
-    
+
     const answersList = props.answers.map(((answer) => {return(
                 <label key={answer}>
-                    <input type="radio" name={props.id} value={answer} />
+                    <input type="radio" name={props.text} value={answer} />
                       <span className="answer">{answer}</span>
                 </label>
     )}))
