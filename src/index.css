@@ -4,7 +4,8 @@
   color-scheme: light;
   background-color: #F5F7FB;
   color: #293264;
-
+  --primary-color: #4D5B9E;
+  --secondary-color: #D6DBF5;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -85,7 +86,7 @@ button {
   font-weight: 500;
   font-family: inherit;
   color: #F5F7FB;
-  background-color: #4D5B9E;
+  background-color: var(--primary-color);
   cursor: pointer;
   transition: border-color 0.25s;
   transition: font-weight 0.05s;
@@ -100,3 +101,36 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+.question{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.question input{
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.answer{
+  display: flex;
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  padding: 0.25em 1.25em;
+  width: fit-content;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.answer:hover{
+    background-color: var(--secondary-color);
+}
+
+input:checked + .answer{
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+

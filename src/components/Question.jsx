@@ -1,7 +1,18 @@
-export default function Question(){
+export default function Question(props){
+    
+    const answersList = props.answers.map(((answer) => {return(
+                <label key={answer}>
+                    <input type="radio" name={props.id} value={answer} />
+                      <span className="answer">{answer}</span>
+                </label>
+    )}))
+    
     return(
+    <div className="question-container">
+        <h2>{props.text}</h2>
         <div className="question">
-            <p>Question</p>
+          {answersList}
         </div>
+    </div>
     )
 }

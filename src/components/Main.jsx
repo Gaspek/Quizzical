@@ -11,7 +11,7 @@ export default function Main(){
     
     return (
         <main>
-            {isGameStarted? <Quiz /> : <Intro startGame={startGame}/>}
+            {isGameStarted? <Quiz /> : <Intro startGame={(startGame)}/>}
         </main>
     )
 }
