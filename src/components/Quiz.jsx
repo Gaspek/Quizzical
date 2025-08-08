@@ -5,10 +5,13 @@ import { nanoid } from 'nanoid'
 export default function Quiz(){
 
     const [questions, setQuestions] = useState([])
+    const [answers, setAnswers] = useState([])
+
+    const isAnswered = !(answers.length === 0)
 
     const questionsElements = 
         questions.map(question => (
-            <Question key={question.id} {...question} />))
+            <Question key={question.id} {...question} isAnswered={isAnswered} />))
 
     useEffect(() => {
         const fetchQuestion = async () => {
@@ -51,9 +54,11 @@ export default function Quiz(){
         const formData = new FormData(e.target);
         const formJson = Object.fromEntries(formData.entries());
 
+        setAnswers(formJson)
         console.log(formJson)
         console.log(questions)
     }
+    console.log("isAnswerd: ", isAnswered)
 
     return(
         <section>

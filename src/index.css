@@ -132,13 +132,22 @@ button:focus-visible {
   justify-content: center;
 }
 
-.answer:hover{
+.answer:not(:disabled) :hover {
     background-color: var(--secondary-color);
 }
 
 input:checked + .answer{
     background-color: var(--secondary-color);
     border-color: var(--secondary-color);
+}
+
+input:disabled:checked + .answer{
+    background-color:#F8BCBC;
+}
+
+input:disabled + .answer{
+    opacity: 0.8;
+    cursor: default;
 }
 
 .quiz{
