@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import Question from "./Question";
+import { nanoid } from 'nanoid'
 
 export default function Quiz(){
 
     const [questions, setQuestions] = useState([])
 
-    const questionsElements = questions.map(question => <Question key={question.text} {...question} />)
+    const questionsElements = 
+        questions.map(question => (
+            <Question key={question.id} {...question} />))
 
     useEffect(() => {
         const fetchQuestion = async () => {
@@ -13,8 +16,10 @@ export default function Quiz(){
                 const response = await  fetch("https://opentdb.com/api.php?amount=5&difficulty=easy&type=multiple")
                 const data = await response.json()
                 const formattedData = data.results.map((data) => ({
+                        id: nanoid(),
                         text: decodeHtml(data.question),
-                        answers: shuffleArray([...data.incorrect_answers, data.correct_answer])
+                        answers: shuffleArray([...data.incorrect_answers, data.correct_answer].map(entry => decodeHtml(entry))),
+                        correctAnswer: data.correct_answer
                     }))
                 setQuestions(formattedData)
             }catch (error){
@@ -24,7 +29,6 @@ export default function Quiz(){
 
         fetchQuestion()
     },[])
-    console.log(questions)
 
     function decodeHtml(html) {
         const txt = document.createElement("textarea");
@@ -40,11 +44,21 @@ export default function Quiz(){
         }
         return newArray;
     }
+
+    function handleSubmit(e){
+        e.preventDefault();
+
+        const formData = new FormData(e.target);
+        const formJson = Object.fromEntries(formData.entries());
+
+        console.log(formJson)
+    }
+
     return(
         <section>
-            <form>
+            <form onSubmit={handleSubmit} method="post">
                 {questionsElements}
-                
+                <button type="submit">Check answer</button>
             </form>
         </section>
     )

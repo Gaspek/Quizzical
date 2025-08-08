@@ -2,7 +2,7 @@ export default function Question(props){
 
     const answersList = props.answers.map(((answer) => {return(
                 <label key={answer}>
-                    <input type="radio" name={props.text} value={answer} />
+                    <input type="radio" name={props.id} value={answer} required={true} />
                       <span className="answer">{answer}</span>
                 </label>
     )}))
