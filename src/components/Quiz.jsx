@@ -52,11 +52,12 @@ export default function Quiz(){
         const formJson = Object.fromEntries(formData.entries());
 
         console.log(formJson)
+        console.log(questions)
     }
 
     return(
         <section>
-            <form onSubmit={handleSubmit} method="post">
+            <form onSubmit={handleSubmit} method="post" className="quiz">
                 {questionsElements}
                 <button type="submit">Check answer</button>
             </form>

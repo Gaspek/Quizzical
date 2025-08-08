@@ -141,3 +141,12 @@ input:checked + .answer{
     border-color: var(--secondary-color);
 }
 
+.quiz{
+  display: flex;
+  flex-direction: column;
+  padding: 0 auto;
+}
+
+.quiz button{
+  margin: 2em auto;
+}
