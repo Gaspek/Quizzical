@@ -132,7 +132,7 @@ button:focus-visible {
   justify-content: center;
 }
 
-.answer:not(:disabled) :hover {
+.answer:not(:disabled):hover {
     background-color: var(--secondary-color);
 }
 
