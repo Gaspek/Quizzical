@@ -111,6 +111,7 @@ button:focus-visible {
   flex-direction: row;
   justify-content: space-between;
   gap: 1em;
+  flex-wrap: wrap;
 }
 
 .question input{
@@ -124,14 +125,14 @@ button:focus-visible {
   border: 1px solid var(--primary-color);
   border-radius: 8px;
   padding: 0.25em 1.25em;
-  width: fit-content;
+  width: 5em;
   height: 100%;
   text-align: center;
   cursor: pointer;
   font-weight: 600;
-  min-width: 5em;
   justify-content: center;
   align-items: center;
+  gap: 1em;
 }
 
 .answer:not(:disabled):hover {
