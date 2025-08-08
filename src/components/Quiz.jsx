@@ -73,8 +73,8 @@ export default function Quiz(){
     }
     
     const submitBtn = <button type="submit">Check answer</button>
-    const playAgainSection = <div>
-                <p>You scored {quizScore}/{questions.length} correct answers</p>
+    const playAgainSection = <div className="end-Screen">
+                <h3>You scored {quizScore}/{questions.length} correct answers</h3>
                 <button onClick={playAgain}>Play again</button>
             </div>
 

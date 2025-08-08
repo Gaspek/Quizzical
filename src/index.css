@@ -159,3 +159,16 @@ input:disabled + .answer{
 .quiz button{
   margin: 2em auto;
 }
+
+.end-Screen{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.end-Screen button{
+  margin: 0;
+  height: 100%;
+  padding-inline: 2.5em;
+  border-radius: 15px;
+}
