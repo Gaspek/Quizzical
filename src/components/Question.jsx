@@ -13,7 +13,6 @@ export default function Question(props){
           </label>
     )}))
     function checkAnswer(answer){
-      console.log("isAnswerd: ", props.isAnswered)
       if(props.isAnswered && answer === props.correctAnswer) return correctAnswerColor;
       return false;
     }
